@@ -1,0 +1,72 @@
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TNH Admin — Đăng nhập</title>
+    <link rel="icon" type="image/svg+xml" href="/images/logo-tnh-tree.svg" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/lib/adminlte/css/adminlte.css" />
+    <link rel="stylesheet" href="@Url.Content("~/css/site.css")" asp-append-version="true" />
+</head>
+<body class="login-page login-page--tnh-v2">
+    <div class="login-v2-bg" aria-hidden="true"></div>
+    <div class="login-v2-leaf login-v2-leaf--1" aria-hidden="true"></div>
+    <div class="login-v2-leaf login-v2-leaf--2" aria-hidden="true"></div>
+
+    <main class="login-v2-main">
+        <div class="login-v2-card">
+            <header class="login-v2-card__head">
+                <span class="login-v2-badge">Quản trị</span>
+                <h1 class="login-v2-title">TNH Admin</h1>
+                <p class="login-v2-lead">Đăng nhập để quản lý đơn hàng, sản phẩm và nhân sự cửa hàng cây cảnh.</p>
+            </header>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger border-0 py-2 small mb-3">
+                    @Html.ValidationSummary(true)
+                </div>
+            }
+
+            <form asp-action="Login" asp-controller="Account" method="post" class="login-v2-form">
+                <div class="mb-3">
+                    <label class="form-label login-v2-label">Email</label>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text login-v2-input-icon"><i class="bi bi-envelope"></i></span>
+                        <input type="email" name="email" class="form-control login-v2-input" placeholder="you@company.com" autocomplete="username" autofocus />
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label login-v2-label">Mật khẩu</label>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text login-v2-input-icon"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" name="password" class="form-control login-v2-input" placeholder="••••••••" autocomplete="current-password" />
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-lg login-v2-submit text-white fw-semibold">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Đăng nhập
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <ul class="login-v2-features" aria-hidden="true">
+            <li><i class="bi bi-shield-check"></i> Truy cập an toàn</li>
+            <li><i class="bi bi-lightning-charge"></i> Thao tác nhanh</li>
+        </ul>
+
+        <p class="login-v2-footer">© @DateTime.Now.Year TNH TREE · Admin</p>
+    </main>
+
+    <script src="~/lib/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

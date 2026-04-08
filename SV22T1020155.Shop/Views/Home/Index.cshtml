@@ -1,0 +1,215 @@
+@{
+    ViewData["Title"] = "Trang chủ";
+    var products = ViewBag.FeaturedProducts as List<Product> ?? new List<Product>();
+}
+
+<section class="home-hero-ndn home-hero-ndn--v2 mb-0">
+    <div class="container home-hero-ndn__inner">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-5 order-1 order-lg-1">
+                <div class="home-hero-ndn__art reveal">
+                    <span class="home-hero-ndn__art-ring" aria-hidden="true"></span>
+                    <span class="home-hero-ndn__art-ring home-hero-ndn__art-ring--2" aria-hidden="true"></span>
+                    <div class="home-hero-ndn__visual mb-0">
+                        <i class="bi bi-tree" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 order-2 order-lg-2">
+                <span class="home-hero-ndn__badge"><i class="bi bi-patch-check-fill"></i> Cây tươi · Đóng gói an toàn</span>
+                <h1 class="home-hero-ndn__title">
+                    Vườn nhỏ<br />
+                    <span class="home-hero-ndn__accent">trong từng mét vuông</span>
+                </h1>
+                <p class="home-hero-ndn__lead mb-0">Chọn cây trong nhà, sen đá, chậu gốm và phụ kiện tưới tiêu — giao tận nơi, kèm hướng dẫn ánh sáng &amp; độ ẩm phù hợp không gian của bạn.</p>
+                <div class="home-hero-ndn__stats">
+                    <div class="home-hero-ndn__stat">
+                        <strong>500+</strong>
+                        <span>loại cây &amp; phụ kiện</span>
+                    </div>
+                    <div class="home-hero-ndn__stat">
+                        <strong>7 ngày</strong>
+                        <span>đổi trả nếu cây héo*</span>
+                    </div>
+                    <div class="home-hero-ndn__stat">
+                        <strong>24/7</strong>
+                        <span>tư vấn chăm sóc online</span>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-light btn-lg px-4">
+                        <i class="bi bi-flower2 me-2"></i>Khám phá cửa hàng
+                    </a>
+                    <a asp-controller="Home" asp-action="Contact" class="btn btn-outline-light btn-lg px-4">
+                        <i class="bi bi-chat-dots me-2"></i>Nhận tư vấn nhanh
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container home-cat-rail-wrap">
+    <div class="home-cat-rail reveal-stagger">
+        <a asp-controller="Product" asp-action="Index" asp-route-search="sen" class="home-cat-rail__chip reveal"><i class="bi bi-flower1"></i> Sen đá &amp; xương rồng</a>
+        <a asp-controller="Product" asp-action="Index" asp-route-search="cây" class="home-cat-rail__chip reveal"><i class="bi bi-tree"></i> Cây lá &amp; thân thảo</a>
+        <a asp-controller="Product" asp-action="Index" class="home-cat-rail__chip reveal"><i class="bi bi-stars"></i> Hàng mới về</a>
+        <a asp-controller="Product" asp-action="Index" asp-route-search="chậu" class="home-cat-rail__chip reveal"><i class="bi bi-circle"></i> Chậu &amp; đất trồng</a>
+    </div>
+</div>
+
+<div class="container mb-4">
+    <div class="home-promo-strip reveal-stagger">
+        <a asp-controller="Product" asp-action="Index" class="home-promo-chip reveal">
+            <i class="bi bi-truck"></i>
+            <span><strong>Miễn phí ship</strong> <span>Đơn từ 500k</span></span>
+        </a>
+        <a asp-controller="Product" asp-action="Index" class="home-promo-chip reveal">
+            <i class="bi bi-shield-check"></i>
+            <span><strong>Cây khỏe</strong> <span>Đổi trong 7 ngày nếu héo</span></span>
+        </a>
+        <a asp-controller="Home" asp-action="Contact" class="home-promo-chip reveal">
+            <i class="bi bi-headset"></i>
+            <span><strong>Hỗ trợ 24/7</strong> <span>Tư vấn ánh sáng &amp; đất</span></span>
+        </a>
+    </div>
+</div>
+
+<div class="container py-4">
+    <section class="mb-5 pt-1">
+        <div class="row align-items-end g-3 mb-3">
+            <div class="col-lg-8">
+                <h2 class="section-title mb-1">Mua theo nhu cầu</h2>
+                <p class="text-muted mb-0 small">Gợi ý danh mục phổ biến cho cây cảnh — lọc thêm trong trang sản phẩm.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary btn-sm">Tất cả sản phẩm <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+        <div class="row g-3 reveal-stagger home-cat-static">
+            <div class="col-6 col-md-4 col-lg-3">
+                <a class="home-cat-static__card reveal h-100" asp-controller="Product" asp-action="Index" asp-route-search="sen đá">
+                    <i class="bi bi-flower2"></i>
+                    <h3>Sen đá &amp; xương rồng</h3>
+                    <p>Ít nước, thích hợp bàn làm việc.</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a class="home-cat-static__card reveal h-100" asp-controller="Product" asp-action="Index" asp-route-search="monstera">
+                    <i class="bi bi-tree"></i>
+                    <h3>Cây lá lớn</h3>
+                    <p>Monstera, ficus, trầu bà…</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a class="home-cat-static__card reveal h-100" asp-controller="Product" asp-action="Index" asp-route-search="treo">
+                    <i class="bi bi-droplet"></i>
+                    <h3>Cây treo &amp; dây leo</h3>
+                    <p>Tận dụng kệ và ban công.</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a class="home-cat-static__card reveal h-100" asp-controller="Product" asp-action="Index" asp-route-search="chậu">
+                    <i class="bi bi-circle"></i>
+                    <h3>Chậu &amp; phụ kiện</h3>
+                    <p>Đất, đá, bình tưới, phân bón.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5 py-4 px-3 px-md-4 home-why-tnh reveal">
+        <h2 class="h4 fw-bold mb-4 text-center">Vì sao chọn TNH TREE?</h2>
+        <div class="row g-4">
+            <div class="col-md-4 text-center text-md-start">
+                <div class="home-why-tnh__icon mx-auto mx-md-0"><i class="bi bi-box-seam"></i></div>
+                <h3 class="h6 fw-bold">Đóng gói chống sốc</h3>
+                <p class="text-muted small mb-0">Cố định chậu, bọc lá nhỏ giúp cây vận chuyển ít stress.</p>
+            </div>
+            <div class="col-md-4 text-center text-md-start">
+                <div class="home-why-tnh__icon mx-auto mx-md-0"><i class="bi bi-journal-text"></i></div>
+                <h3 class="h6 fw-bold">Hướng dẫn sau mua</h3>
+                <p class="text-muted small mb-0">Mẹo tưới, ánh sáng và xử lý sâu bệnh thường gặp.</p>
+            </div>
+            <div class="col-md-4 text-center text-md-start">
+                <div class="home-why-tnh__icon mx-auto mx-md-0"><i class="bi bi-people"></i></div>
+                <h3 class="h6 fw-bold">Tư vấn tận tình</h3>
+                <p class="text-muted small mb-0">Đội ngũ am hiểu cây nội thất &amp; ngoài trời.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="row g-3 reveal-stagger">
+            <div class="col-lg-6">
+                <div class="reveal h-100">
+                    <a asp-controller="Product" asp-action="Index" class="home-mid-banner home-mid-banner--run d-block text-decoration-none h-100">
+                        <div class="home-mid-banner__content">
+                            <span class="small text-uppercase opacity-75">Bộ sưu tập</span>
+                            <h3 class="fw-bold mb-2 mt-1">Cây trong nhà &amp; ban công</h3>
+                            <p class="mb-3 small">Lọc không khí, dễ chăm — cập nhật mỗi tuần.</p>
+                            <span class="btn btn-sm fw-semibold rounded-pill">Xem ngay <i class="bi bi-arrow-right ms-1"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="reveal h-100">
+                    <a asp-controller="Account" asp-action="Register" class="home-mid-banner home-mid-banner--court d-block text-decoration-none h-100">
+                        <div class="home-mid-banner__content">
+                            <span class="small text-uppercase">Ưu đãi</span>
+                            <h3 class="fw-bold mb-2 mt-1">Thành viên TNH TREE</h3>
+                            <p class="mb-3 small">Nhận thông tin khuyến mãi và mẹo chăm cây.</p>
+                            <span class="btn btn-sm fw-semibold rounded-pill">Đăng ký miễn phí <i class="bi bi-arrow-right ms-1"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @if (products.Any())
+    {
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="section-title mb-0">Được xem nhiều nhất</h2>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary btn-sm">Xem tất cả <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="row g-3 reveal-stagger">
+                @foreach (var p in products)
+                {
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="product-card reveal h-100">
+                            <a asp-controller="Product" asp-action="Detail" asp-route-id="@p.ProductID">
+                                <div class="card-img-wrap">
+                                    <img src="@(string.IsNullOrEmpty(p.Photo) ? "/images/products/noproduct.png" : "/images/products/" + p.Photo)"
+                                         alt="@p.ProductName" />
+                                </div>
+                            </a>
+                            <div class="card-body">
+                                <a class="product-name" asp-controller="Product" asp-action="Detail" asp-route-id="@p.ProductID">@p.ProductName</a>
+                                <div class="product-price">@p.Price.ToString("N0") đ</div>
+                                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                    <input type="hidden" name="productId" value="@p.ProductID" />
+                                    <button type="submit" class="btn btn-add-cart w-100">
+                                        <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+
+    <section class="home-bottom-cta text-center rounded-4 overflow-hidden mb-2 reveal">
+        <div class="home-bottom-cta__inner py-5 px-3">
+            <h3 class="fw-bold mb-2">Bắt đầu góc xanh cùng TNH TREE</h3>
+            <p class="mb-4 text-muted-cta mx-auto" style="max-width:520px;">Thanh toán tiện lợi — Giao cẩn thận — Đồng hành sau khi mua.</p>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary btn-lg fw-semibold px-5">
+                <i class="bi bi-flower2 me-2"></i>Vào cửa hàng
+            </a>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,130 @@
+@model List<CartItem>
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    decimal total = Model.Sum(c => c.TotalPrice);
+}
+
+<div class="container py-4 cart-page cart-page--v2">
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Giỏ hàng</li>
+        </ol>
+    </nav>
+
+    <header class="cart-v2-hero reveal mb-4">
+        <div class="cart-v2-hero__icon" aria-hidden="true"><i class="bi bi-bag-heart-fill"></i></div>
+        <div>
+            <h1 class="cart-v2-hero__title">Giỏ hàng của bạn</h1>
+            <p class="cart-v2-hero__sub mb-0">Kiểm tra sản phẩm, chỉnh số lượng rồi đặt hàng khi đã ưng ý.</p>
+        </div>
+    </header>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    @if (Model.Any())
+    {
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-8">
+                <div class="cart-v2-list reveal">
+                    @foreach (var item in Model)
+                    {
+                        <article class="cart-item-v2">
+                            <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductID" class="cart-item-v2__thumb">
+                                <img src="@(string.IsNullOrEmpty(item.Photo) ? "/images/products/noproduct.png" : "/images/products/" + item.Photo)"
+                                     alt="" loading="lazy" />
+                            </a>
+                            <div class="cart-item-v2__main">
+                                <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductID" class="cart-item-v2__name">
+                                    @item.ProductName
+                                </a>
+                                @if (!string.IsNullOrWhiteSpace(item.Unit))
+                                {
+                                    <span class="cart-item-v2__unit">@item.Unit</span>
+                                }
+                                <div class="cart-item-v2__meta d-lg-none">
+                                    <span class="text-price">@item.Price.ToString("N0") đ / SP</span>
+                                </div>
+                            </div>
+                            <div class="cart-item-v2__unitprice d-none d-lg-block text-end">
+                                <span class="cart-item-v2__lbl">Đơn giá</span>
+                                <span class="text-price">@item.Price.ToString("N0") đ</span>
+                            </div>
+                            <div class="cart-item-v2__qty">
+                                <span class="cart-item-v2__lbl">Số lượng</span>
+                                <form asp-action="UpdateQuantity" method="post" class="cart-item-v2__qty-form">
+                                    <input type="hidden" name="productId" value="@item.ProductID" />
+                                    <div class="cart-qty-stepper">
+                                        <button type="button" class="cart-qty-stepper__btn" onclick="var i=this.nextElementSibling; if(i.value>1){i.value--; i.dispatchEvent(new Event('change'));}">−</button>
+                                        <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control cart-qty-stepper__input"
+                                               onchange="this.form.submit()" />
+                                        <button type="button" class="cart-qty-stepper__btn" onclick="var i=this.previousElementSibling; i.value=parseInt(i.value,10)+1; i.dispatchEvent(new Event('change'));">+</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="cart-item-v2__line text-end">
+                                <span class="cart-item-v2__lbl">Thành tiền</span>
+                                <strong class="text-price cart-item-v2__total">@item.TotalPrice.ToString("N0") đ</strong>
+                            </div>
+                            <div class="cart-item-v2__remove">
+                                <form asp-action="RemoveItem" method="post">
+                                    <input type="hidden" name="productId" value="@item.ProductID" />
+                                    <button type="submit" class="btn btn-outline-danger btn-sm rounded-circle" title="Xóa khỏi giỏ">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </article>
+                    }
+                </div>
+
+                <div class="cart-v2-toolbar reveal">
+                    <form asp-action="Clear" method="post" class="cart-v2-toolbar__form">
+                        <button type="submit" class="btn btn-outline-secondary" onclick="return confirm('Xóa toàn bộ giỏ hàng?')">
+                            <i class="bi bi-x-lg me-1"></i>Xóa giỏ hàng
+                        </button>
+                    </form>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-primary">
+                        <i class="bi bi-arrow-left me-1"></i>Tiếp tục mua sắm
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside class="cart-summary-v2 reveal">
+                    <div class="cart-summary-v2__head">
+                        <i class="bi bi-receipt-cutoff"></i>
+                        <h2 class="cart-summary-v2__title">Tóm tắt đơn</h2>
+                    </div>
+                    <div class="cart-summary-v2__row">
+                        <span>Tạm tính</span>
+                        <span class="fw-semibold">@total.ToString("N0") đ</span>
+                    </div>
+                    <div class="cart-summary-v2__row cart-summary-v2__row--total">
+                        <span>Tổng cộng</span>
+                        <strong class="text-price fs-4 mb-0">@total.ToString("N0") đ</strong>
+                    </div>
+                    <p class="cart-summary-v2__hint small text-muted mb-0">
+                        <i class="bi bi-truck me-1 text-primary"></i> Giao hàng &amp; tư vấn — xem chi tiết khi đặt hàng.
+                    </p>
+                    <a asp-controller="Order" asp-action="Checkout" class="btn btn-primary w-100 py-3 fw-bold cart-summary-v2__cta">
+                        <i class="bi bi-credit-card me-2"></i>Tiến hành đặt hàng
+                    </a>
+                </aside>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="cart-empty-v2 text-center reveal">
+            <div class="cart-empty-v2__icon"><i class="bi bi-cart-x"></i></div>
+            <h2 class="h5 fw-bold text-dark mb-2">Giỏ hàng đang trống</h2>
+            <p class="text-muted mb-4">Thêm cây, chậu hoặc phụ kiện để bắt đầu nhé.</p>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-primary btn-lg px-4">
+                <i class="bi bi-bag-heart me-2"></i>Khám phá sản phẩm
+            </a>
+        </div>
+    }
+</div>

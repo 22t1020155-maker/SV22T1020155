@@ -1,0 +1,268 @@
+/* TNH TREE — theme (AdminLTE / Bootstrap primary) */
+:root {
+    --bs-primary: #15803d;
+    --bs-primary-rgb: 21, 128, 61;
+    --bs-link-color: #15803d;
+    --bs-link-hover-color: #14532d;
+}
+
+#scrollToTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #64646444;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 9999;
+}
+
+    #scrollToTop:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px);
+    }
+
+/* Pagination */
+.pagination {
+    gap: 3px;
+}
+.page-item .page-link {
+    border-radius: 6px;
+    min-width: 34px;
+    text-align: center;
+    font-weight: 500;
+    padding: 4px 10px;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    transition: all 0.15s ease-in-out;
+}
+.page-item .page-link:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+    color: #212529;
+}
+.page-item.active .page-link {
+    background-color: #15803d;
+    border-color: #15803d;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(21, 128, 61, 0.35);
+}
+.page-item.disabled .page-link {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #adb5bd;
+}
+
+/* ── Đăng nhập Admin — TNH v2 (một cột, không logo) ── */
+.login-page.login-page--tnh-v2 {
+    display: block !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+}
+
+.login-page--tnh-v2 {
+    min-height: 100vh;
+    margin: 0;
+    font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+    background: #f4f7f4 !important;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.login-v2-bg {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 90% 70% at 0% 0%, rgba(21, 128, 61, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 100% 100%, rgba(74, 222, 128, 0.12) 0%, transparent 50%),
+        repeating-linear-gradient(
+            -12deg,
+            transparent,
+            transparent 40px,
+            rgba(21, 128, 61, 0.02) 40px,
+            rgba(21, 128, 61, 0.02) 41px
+        );
+    z-index: 0;
+}
+
+.login-v2-leaf {
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 60% 40% 55% 45%;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(145deg, #15803d, #22c55e);
+    filter: blur(2px);
+}
+.login-v2-leaf--1 {
+    top: -80px;
+    right: -60px;
+    transform: rotate(18deg);
+}
+.login-v2-leaf--2 {
+    bottom: -100px;
+    left: -80px;
+    width: 320px;
+    height: 320px;
+    transform: rotate(-12deg);
+    opacity: 0.1;
+}
+
+.login-v2-main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.25rem 2rem;
+}
+
+.login-v2-card {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 2.25rem 2rem 2rem;
+    box-shadow:
+        0 1px 3px rgba(15, 23, 42, 0.06),
+        0 20px 40px -16px rgba(21, 83, 45, 0.18);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    position: relative;
+    overflow: hidden;
+}
+.login-v2-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #15803d, #22c55e, #15803d);
+}
+
+.login-v2-card__head {
+    margin-bottom: 1.75rem;
+}
+
+.login-v2-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #15803d;
+    background: rgba(21, 128, 61, 0.1);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+}
+
+.login-v2-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(1.85rem, 5vw, 2.25rem);
+    font-weight: 650;
+    color: #14532d;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    line-height: 1.15;
+}
+
+.login-v2-lead {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+.login-v2-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.35rem;
+}
+
+.login-v2-input-icon {
+    background: #f1f5f9 !important;
+    border-color: #e2e8f0 !important;
+    color: #15803d !important;
+    border-radius: 14px 0 0 14px !important;
+}
+
+.login-v2-input {
+    border-color: #e2e8f0 !important;
+    border-radius: 0 14px 14px 0 !important;
+    font-size: 1rem;
+}
+
+.login-v2-input:focus {
+    border-color: #15803d !important;
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.2) !important;
+}
+
+.login-v2-submit {
+    border: none;
+    border-radius: 14px;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%) !important;
+    box-shadow: 0 10px 24px -8px rgba(21, 128, 61, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-v2-submit:hover {
+    background: linear-gradient(135deg, #166534 0%, #14532d 100%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px -8px rgba(21, 128, 61, 0.5);
+    color: #fff !important;
+}
+
+.login-v2-features {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+.login-v2-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.login-v2-features i {
+    color: #15803d;
+    font-size: 1rem;
+}
+
+.login-v2-footer {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+/* Sidebar: tiêu đề chỉ chữ, không logo */
+.sidebar-brand--text-only .brand-link--text-only {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.brand-text--admin {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: #ecfdf5 !important;
+}

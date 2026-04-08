@@ -1,0 +1,81 @@
+@{
+    ViewData["Title"] = "Giới thiệu";
+}
+
+<div class="about-page">
+    <div class="about-band">
+        <div class="container py-5">
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="text-white-50">Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Giới thiệu</li>
+                </ol>
+            </nav>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7 reveal">
+                    <p class="about-band__eyebrow text-uppercase small fw-bold mb-2">Về chúng tôi</p>
+                    <h1 class="about-band__title display-6 fw-bold text-white mb-3">TNH TREE — góc xanh cho mọi nhà</h1>
+                    <p class="about-band__lead text-white-50 mb-0">Cây cảnh tuyển chọn, giao cẩn thận, đồng hành chăm sóc sau mua.</p>
+                </div>
+                <div class="col-lg-5 d-none d-lg-flex justify-content-lg-end reveal">
+                    <div class="about-band__badge-icon" aria-hidden="true"><i class="bi bi-flower2"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-4 g-lg-5 align-items-start">
+            <div class="col-lg-7 reveal">
+                <h2 class="h4 fw-bold mb-3">Câu chuyện</h2>
+                <p class="text-muted"><strong class="text-dark">TNH TREE</strong> bắt đầu từ niềm yêu cây và mong muốn mang thiên nhiên vào từng ban công, phòng khách và văn phòng. Chúng tôi chọn lọc từng cây, kiểm tra sức khỏe lá và rễ trước khi gửi đi.</p>
+                <p class="text-muted mb-0">Mỗi khách hàng đều nhận được hướng dẫn tưới, ánh sáng và đất phù hợp — từ lần mua đầu tiên đến những lần sau.</p>
+            </div>
+            <div class="col-lg-5 reveal">
+                <div class="about-values card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h3 class="h6 text-uppercase text-muted mb-3">Giá trị cốt lõi</h3>
+                        <ul class="list-unstyled mb-0 about-values__list">
+                            <li class="d-flex gap-3 mb-3">
+                                <span class="about-values__dot"><i class="bi bi-shield-check"></i></span>
+                                <span><strong class="d-block">Cây khỏe</strong><span class="text-muted small">Nguồn gốc rõ ràng, kiểm tra trước khi đóng gói.</span></span>
+                            </li>
+                            <li class="d-flex gap-3 mb-3">
+                                <span class="about-values__dot"><i class="bi bi-truck"></i></span>
+                                <span><strong class="d-block">Giao an toàn</strong><span class="text-muted small">Toàn quốc 1–3 ngày; freeship từ 500k.</span></span>
+                            </li>
+                            <li class="d-flex gap-3">
+                                <span class="about-values__dot"><i class="bi bi-chat-dots"></i></span>
+                                <span><strong class="d-block">Tư vấn</strong><span class="text-muted small">Hỗ trợ chọn cây phù hợp ánh sáng &amp; thời gian chăm.</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-2 reveal-stagger">
+            <div class="col-md-4">
+                <div class="about-pillar text-center p-4 rounded-4 h-100">
+                    <i class="bi bi-flower2 fs-2 text-primary mb-2 d-block"></i>
+                    <h3 class="h6 fw-bold">Đa dạng cây</h3>
+                    <p class="text-muted small mb-0">Từ sen đá đến cây lá lớn.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about-pillar text-center p-4 rounded-4 h-100">
+                    <i class="bi bi-truck fs-2 text-primary mb-2 d-block"></i>
+                    <h3 class="h6 fw-bold">Giao hàng nhanh</h3>
+                    <p class="text-muted small mb-0">Theo dõi đơn minh bạch.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about-pillar text-center p-4 rounded-4 h-100">
+                    <i class="bi bi-sun fs-2 text-primary mb-2 d-block"></i>
+                    <h3 class="h6 fw-bold">Chăm sóc bền</h3>
+                    <p class="text-muted small mb-0">TNH TREE — mỗi ngày thêm một nhánh xanh.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
